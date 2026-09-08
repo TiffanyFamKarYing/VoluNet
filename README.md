@@ -35,15 +35,18 @@ volunet/
 ├── admin.php                     Admin dashboard
 ├── config.php                    Session setup, Supabase client, CSRF & auth helpers
 ├── partials/
-│   ├── head.php                  <head>, global CSS, fonts, icons
-│   ├── header.php                Site nav (desktop + mobile)
-│   └── footer.php                Site footer + shared JS
-├── opportunity_form_fields.php   Shared add/edit opportunity form (used by admin.php)
+│   ├── head.php                       <head>, global CSS, fonts, icons
+│   ├── header.php                     Site nav (desktop + mobile)
+│   ├── footer.php                     Site footer + shared JS
+│   └── opportunity_form_fields.php    Shared add/edit opportunity form (used by admin.php)
+├── png_vd/                       Opportunity images (.png) and demo video
 ├── seed_data.sql                 Table definitions, seed data, and RLS policies
 └── video.txt                     Demo video link
 ```
 
-> **Note:** `head.php`, `header.php`, and `footer.php` are included from every page as `partials/head.php`, `partials/header.php`, and `partials/footer.php`. When setting up the project, make sure these three files live inside a `partials/` subfolder (create it if it doesn't already exist).
+> **Note:** `head.php`, `header.php`, `footer.php`, and `opportunity_form_fields.php` are all included from other pages via a `partials/` subfolder. Make sure all four files live inside `partials/` (create it if it doesn't already exist) — otherwise the `include`/`require` calls in `index.php`, `admin.php`, etc. won't resolve.
+>
+> `opportunity.php` and `opportunity_details.php` reference images by path like `png_vd/Web_Developer_for_NGO_Website.png`, so the `png_vd/` folder (containing the opportunity photos and the demo video) needs to sit in the project root alongside these PHP files.
 
 ## Requirements
 
